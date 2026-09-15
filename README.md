@@ -1,0 +1,2 @@
+# SOC-SIEM Open-Source
+TÓPICOS ESPECIAIS EM SEGURANÇA 2026.2: ambiente SOC/SIEM Open-Source
