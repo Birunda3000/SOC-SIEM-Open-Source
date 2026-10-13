@@ -1,0 +1,25 @@
+Vagrant.configure('2') do |config|
+  # VM02: NIDS (Suricata + Zeek)
+  config.vm.define 'sensor-nids' do |nids|
+    nids.vm.box = 'ubuntu/jammy64'
+    nids.vm.hostname = 'sensor-nids'
+    nids.vm.network 'private_network', type: 'dhcp'
+    nids.vm.provider 'virtualbox' do |vb|
+      vb.memory = '2048'
+    end
+  end
+
+  # VM04: Endpoint Monitorado (Linux)
+  config.vm.define 'endpoint-linux' do |linux|
+    linux.vm.box = 'ubuntu/jammy64'
+    linux.vm.hostname = 'endpoint-linux'
+  end
+
+# add Windows
+
+  # VM06: Maquina de Ataques (Kali)
+  config.vm.define 'kali-attacker' do |kali|
+    kali.vm.box = 'kalilinux/rolling'
+    kali.vm.hostname = 'kali-attacker'
+  end
+end
