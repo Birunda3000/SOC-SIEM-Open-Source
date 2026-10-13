@@ -1,25 +1,55 @@
-Vagrant.configure('2') do |config|
+Vagrant.configure("2") do |config|
+  # --- REDE PRIVADA DO SOC ---
+  # Sub-rede escolhida: 192.168.56.0/24
+
   # VM02: NIDS (Suricata + Zeek)
-  config.vm.define 'sensor-nids' do |nids|
-    nids.vm.box = 'ubuntu/jammy64'
-    nids.vm.hostname = 'sensor-nids'
-    nids.vm.network 'private_network', type: 'dhcp'
-    nids.vm.provider 'virtualbox' do |vb|
-      vb.memory = '2048'
+  config.vm.define "sensor-nids" do |nids|
+    nids.vm.box = "ubuntu/jammy64"
+    nids.vm.hostname = "sensor-nids"
+    nids.vm.network "private_network", ip: "192.168.56.10"
+    
+    nids.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = 2
+      # MAGICA DO NIDS: Ativa o Modo Promiscuo (SPAN/TAP) na interface de rede interna
+      vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     end
   end
 
   # VM04: Endpoint Monitorado (Linux)
-  config.vm.define 'endpoint-linux' do |linux|
-    linux.vm.box = 'ubuntu/jammy64'
-    linux.vm.hostname = 'endpoint-linux'
+  config.vm.define "endpoint-linux" do |linux|
+    linux.vm.box = "ubuntu/jammy64"
+    linux.vm.hostname = "endpoint-linux"
+    linux.vm.network "private_network", ip: "192.168.56.20"
+    
+    linux.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024" # Endpoint não precisa de muita memoria
+    end
   end
 
-# add Windows
 
-  # VM06: Maquina de Ataques (Kali)
-  config.vm.define 'kali-attacker' do |kali|
-    kali.vm.box = 'kalilinux/rolling'
-    kali.vm.hostname = 'kali-attacker'
+# VM05: Endpoint Monitorado (Windows)
+  config.vm.define "endpoint-windows" do |win|
+    # Usando uma box otimizada do Windows 10 para Vagrant
+    win.vm.box = "gusztavvargadr/windows-10"
+    win.vm.hostname = "endpoint-windows"
+    win.vm.network "private_network", ip: "192.168.56.40"
+    
+    win.vm.provider "virtualbox" do |vb|
+      vb.memory = "4096" # Windows exige mais memoria para nao travar
+      vb.cpus = 2
+    end
+  end
+
+
+  # VM06: Máquina de Ataques (Kali Linux)
+  config.vm.define "kali-attacker" do |kali|
+    kali.vm.box = "kalilinux/rolling"
+    kali.vm.hostname = "kali-attacker"
+    kali.vm.network "private_network", ip: "192.168.56.30"
+    
+    linux.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
   end
 end

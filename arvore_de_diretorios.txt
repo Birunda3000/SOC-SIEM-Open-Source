@@ -1,0 +1,224 @@
+SOC-SIEM Open-Source/
+├── .git
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   └── ... (mais 4 itens)
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── refs
+│   │   │   ├── heads
+│   │   │   │   └── main
+│   │   │   └── remotes
+│   │   │       └── origin
+│   │   │           ├── HEAD
+│   │   │           └── main
+│   │   └── HEAD
+│   ├── objects
+│   │   ├── 3f
+│   │   │   └── 557f8e52dafd5a2e63010f2ebeb7b15afa523c
+│   │   ├── 5d
+│   │   │   └── f9bbedb7fdb8a802a7c4cd505e949e75da147a
+│   │   ├── 33
+│   │   │   └── a2a508a58f7b5b3077ca8ed2bb3782d3d23c4a
+│   │   ├── 57
+│   │   │   └── 53e646abf27269c2bd4f6a6a9520c0a01f900c
+│   │   ├── 93
+│   │   │   └── df31bc77110213e53a0ad6d908be9557e0c0c2
+│   │   ├── ab
+│   │   │   └── 263a1fedebdff56f2be73030fd297d6d2d51d2
+│   │   ├── c6
+│   │   │   └── 9dcdd4afef9382a60e112ded24b756e7bf8c74
+│   │   ├── df
+│   │   │   └── e0770424b2a19faf507a501ebfc23be8f54e7b
+│   │   ├── e1
+│   │   │   └── fd8c071a338706d615edaa064e1f355f6def89
+│   │   ├── e5
+│   │   │   └── 38e737a4f800c1160eacf9dd56375cf0d2e455
+│   │   └── ... (mais 2 itens)
+│   ├── refs
+│   │   ├── heads
+│   │   │   └── main
+│   │   ├── remotes
+│   │   │   └── origin
+│   │   │       ├── HEAD
+│   │   │       └── main
+│   │   └── tags
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   └── ... (mais 1 itens)
+├── docker
+│   ├── shuffle
+│   └── wazuh
+│       ├── .git
+│       │   ├── hooks
+│       │   │   ├── applypatch-msg.sample
+│       │   │   ├── commit-msg.sample
+│       │   │   ├── fsmonitor-watchman.sample
+│       │   │   ├── post-update.sample
+│       │   │   ├── pre-applypatch.sample
+│       │   │   ├── pre-commit.sample
+│       │   │   ├── pre-merge-commit.sample
+│       │   │   ├── pre-push.sample
+│       │   │   ├── pre-rebase.sample
+│       │   │   ├── pre-receive.sample
+│       │   │   └── ... (mais 4 itens)
+│       │   ├── info
+│       │   │   └── exclude
+│       │   ├── logs
+│       │   │   ├── refs
+│       │   │   │   └── remotes
+│       │   │   │       └── origin
+│       │   │   │           └── HEAD
+│       │   │   └── HEAD
+│       │   ├── objects
+│       │   │   ├── info
+│       │   │   └── pack
+│       │   │       ├── pack-cdc55d34b6bf2bb45a06470351d663637f6e2141.idx
+│       │   │       ├── pack-cdc55d34b6bf2bb45a06470351d663637f6e2141.pack
+│       │   │       └── pack-cdc55d34b6bf2bb45a06470351d663637f6e2141.rev
+│       │   ├── refs
+│       │   │   ├── heads
+│       │   │   ├── remotes
+│       │   │   │   └── origin
+│       │   │   │       └── HEAD
+│       │   │   └── tags
+│       │   ├── config
+│       │   ├── description
+│       │   ├── HEAD
+│       │   ├── index
+│       │   └── packed-refs
+│       ├── .github
+│       │   ├── workflows
+│       │   │   ├── push.yml
+│       │   │   ├── trivy-dashboard-4-4.yml
+│       │   │   ├── trivy-indexer-4-4.yml
+│       │   │   └── trivy-manager-4-4.yml
+│       │   ├── .goss.yaml
+│       │   ├── multi-node-filebeat-check.sh
+│       │   ├── multi-node-log-check.sh
+│       │   ├── single-node-filebeat-check.sh
+│       │   └── single-node-log-check.sh
+│       ├── build-docker-images
+│       │   ├── wazuh-dashboard
+│       │   │   ├── config
+│       │   │   │   ├── config.sh
+│       │   │   │   ├── config.yml
+│       │   │   │   ├── dl_base.sh
+│       │   │   │   ├── entrypoint.sh
+│       │   │   │   ├── install_wazuh_app.sh
+│       │   │   │   ├── opensearch_dashboards.yml
+│       │   │   │   ├── wazuh.yml
+│       │   │   │   └── wazuh_app_config.sh
+│       │   │   └── Dockerfile
+│       │   ├── wazuh-indexer
+│       │   │   ├── config
+│       │   │   │   ├── config.sh
+│       │   │   │   ├── config.yml
+│       │   │   │   ├── entrypoint.sh
+│       │   │   │   ├── internal_users.yml
+│       │   │   │   ├── opensearch.yml
+│       │   │   │   ├── roles.yml
+│       │   │   │   ├── roles_mapping.yml
+│       │   │   │   └── securityadmin.sh
+│       │   │   └── Dockerfile
+│       │   ├── wazuh-manager
+│       │   │   ├── config
+│       │   │   │   ├── etc
+│       │   │   │   │   ├── cont-init.d
+│       │   │   │   │   │   ├── 0-wazuh-init
+│       │   │   │   │   │   ├── 1-config-filebeat
+│       │   │   │   │   │   └── 2-manager
+│       │   │   │   │   └── services.d
+│       │   │   │   │       ├── filebeat
+│       │   │   │   │       │   ├── finish
+│       │   │   │   │       │   └── run
+│       │   │   │   │       └── ossec-logs
+│       │   │   │   │           └── run
+│       │   │   │   ├── check_repository.sh
+│       │   │   │   ├── create_user.py
+│       │   │   │   ├── filebeat.yml
+│       │   │   │   ├── filebeat_module.sh
+│       │   │   │   ├── permanent_data.env
+│       │   │   │   └── permanent_data.sh
+│       │   │   └── Dockerfile
+│       │   ├── build-images.sh
+│       │   ├── build-images.yml
+│       │   └── README.md
+│       ├── indexer-certs-creator
+│       │   ├── config
+│       │   │   └── entrypoint.sh
+│       │   ├── Dockerfile
+│       │   └── README.md
+│       ├── multi-node
+│       │   ├── config
+│       │   │   ├── nginx
+│       │   │   │   └── nginx.conf
+│       │   │   ├── wazuh_cluster
+│       │   │   │   ├── wazuh_manager.conf
+│       │   │   │   └── wazuh_worker.conf
+│       │   │   ├── wazuh_dashboard
+│       │   │   │   ├── opensearch_dashboards.yml
+│       │   │   │   └── wazuh.yml
+│       │   │   ├── wazuh_indexer
+│       │   │   │   ├── internal_users.yml
+│       │   │   │   ├── wazuh1.indexer.yml
+│       │   │   │   ├── wazuh2.indexer.yml
+│       │   │   │   └── wazuh3.indexer.yml
+│       │   │   └── certs.yml
+│       │   ├── docker-compose.yml
+│       │   ├── generate-indexer-certs.yml
+│       │   ├── Migration-to-Wazuh-4.4.md
+│       │   ├── README.md
+│       │   └── volume-migrator.sh
+│       ├── single-node
+│       │   ├── config
+│       │   │   ├── wazuh_cluster
+│       │   │   │   └── wazuh_manager.conf
+│       │   │   ├── wazuh_dashboard
+│       │   │   │   ├── opensearch_dashboards.yml
+│       │   │   │   └── wazuh.yml
+│       │   │   ├── wazuh_indexer
+│       │   │   │   ├── internal_users.yml
+│       │   │   │   └── wazuh.indexer.yml
+│       │   │   ├── wazuh_indexer_ssl_certs
+│       │   │   │   ├── admin-key.pem
+│       │   │   │   ├── admin.pem
+│       │   │   │   ├── root-ca-manager.key
+│       │   │   │   ├── root-ca-manager.pem
+│       │   │   │   ├── root-ca.key
+│       │   │   │   ├── root-ca.pem
+│       │   │   │   ├── wazuh.dashboard-key.pem
+│       │   │   │   ├── wazuh.dashboard.pem
+│       │   │   │   ├── wazuh.indexer-key.pem
+│       │   │   │   ├── wazuh.indexer.pem
+│       │   │   │   └── ... (mais 2 itens)
+│       │   │   └── certs.yml
+│       │   ├── docker-compose.yml
+│       │   ├── generate-indexer-certs.yml
+│       │   └── README.md
+│       ├── .env
+│       ├── .gitignore
+│       ├── CHANGELOG.md
+│       ├── LICENSE
+│       └── ... (mais 2 itens)
+├── vms
+│   ├── scripts
+│   └── Vagrantfile
+├── .gitattributes
+├── .gitignore
+├── arvore_de_diretorios.txt
+├── gerar_arvore.py
+└── README.md
